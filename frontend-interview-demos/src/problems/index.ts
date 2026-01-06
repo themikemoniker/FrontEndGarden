@@ -4,8 +4,9 @@ import { debounceInputSource } from "./ui/debounce-input.source";
 
 import { NoUi } from "./leetcode/NoUi";
 import { hasDuplicateSource } from "./leetcode/has-duplicate.source";
+import { formatExpressionSource } from "./real/format-expression.source";
 
-export type ProblemType = "ui" | "leetcode";
+export type ProblemType = "ui" | "leetcode" | "real-interview";
 
 export type ProblemDef = {
   id: string;
@@ -19,6 +20,7 @@ export type ProblemDef = {
 export const TYPES: { id: ProblemType; label: string }[] = [
   { id: "ui", label: "UI" },
   { id: "leetcode", label: "LeetCode" },
+  { id: "real-interview", label: "Real Interview Questions" },
 ];
 
 export const PROBLEMS: ProblemDef[] = [
@@ -43,6 +45,21 @@ Approach:
 - Time: O(n)
 - Space: O(n)`,
     source: hasDuplicateSource,
+    Component: NoUi,
+  },
+  {
+    id: "real-format-expression",
+    title: "Format Comparison Expression",
+    type: "real-interview",
+    description: `Convert a nested expression array into a readable English statement.
+
+Input rules:
+- Literals can be numbers or strings.
+- Expressions are arrays where the first entry is an operator ("=", ">", "<", "between", "and").
+- Operators operate on subsequent entries, which may themselves be nested expressions.
+
+Return a single descriptive sentence for the expression, throwing on invalid input.`,
+    source: formatExpressionSource,
     Component: NoUi,
   },
 ];
